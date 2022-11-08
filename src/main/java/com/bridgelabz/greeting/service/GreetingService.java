@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class GreetingService {
     public String printMessages(GreetingDTO greetingDTO){
-        return greetingDTO.getId()+" "+greetingDTO.getName()+" "+greetingDTO.getMessages();
+        return greetingDTO.toString();
     }
 }

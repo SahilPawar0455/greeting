@@ -28,4 +28,12 @@ public class GreetingDTO {
     public void setMessages(String messages) {
         this.messages = messages;
     }
+
+    @Override
+    public String toString() {
+        return "id=" + id +
+                ", name='" + name + '\'' +
+                ", messages='" + messages + '\'' +
+                '}';
+    }
 }
