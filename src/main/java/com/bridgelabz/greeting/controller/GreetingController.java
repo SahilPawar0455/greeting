@@ -32,4 +32,9 @@ public class GreetingController {
                                  @RequestParam(value = "messages") String messages){
         return (greetingService.editMessages(id, messages));
     }
+
+    @DeleteMapping(value = "/delete/{id}")
+    public void deleteGreeting(@PathVariable int id){
+        greetingService.deleteGreeting(id);
+    }
 }
