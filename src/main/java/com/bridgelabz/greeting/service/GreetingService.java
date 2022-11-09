@@ -5,13 +5,17 @@ import com.bridgelabz.greeting.repositary.GreeetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.Optional;
 
 @Service
 public class GreetingService {
     @Autowired
     GreeetingRepository greeetingRepository;
     public Greeting printMessages(Greeting greeting){
-        return greeetingRepository.save(new Greeting(greeting.getId(),greeting.getName(),greeting.getMessages()));
+        return greeetingRepository.save(greeting);
+    }
+
+    public Optional<Greeting> findGreeting(int id) {
+        return greeetingRepository.findById(id);
     }
 }

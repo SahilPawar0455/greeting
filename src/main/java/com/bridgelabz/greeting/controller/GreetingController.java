@@ -3,9 +3,9 @@ package com.bridgelabz.greeting.controller;
 import com.bridgelabz.greeting.model.Greeting;
 import com.bridgelabz.greeting.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 public class GreetingController {
@@ -14,5 +14,10 @@ public class GreetingController {
     @PostMapping(value = "/body")
     public Greeting greetingMessages(@RequestBody Greeting greeting){
         return greetingService.printMessages(greeting);
+    }
+
+    @GetMapping("/getMessage/{id}")
+    public Optional<Greeting> findGreeting(@PathVariable int id){
+        return greetingService.findGreeting(id);
     }
 }
