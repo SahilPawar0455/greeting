@@ -1,11 +1,17 @@
 package com.bridgelabz.greeting.service;
 
-import com.bridgelabz.greeting.dto.GreetingDTO;
+import com.bridgelabz.greeting.model.Greeting;
+import com.bridgelabz.greeting.repositary.GreeetingRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.concurrent.atomic.AtomicLong;
 
 @Service
 public class GreetingService {
-    public String printMessages(GreetingDTO greetingDTO){
-        return greetingDTO.toString();
+    @Autowired
+    GreeetingRepository greeetingRepository;
+    public Greeting printMessages(Greeting greeting){
+        return greeetingRepository.save(new Greeting(greeting.getId(),greeting.getName(),greeting.getMessages()));
     }
 }
